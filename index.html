@@ -4,631 +4,679 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>雙鹿連走 · 二〇二六</title>
+<meta name="description" content="雙鹿連走 — 循鹿野忠雄一九三二年踏查路徑，二〇二六年八月南湖大山連走紀行。" />
+<meta name="theme-color" content="#e8dcc0" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #efe7d6;
-    --paper-deep: #e6dcc6;
-    --ink: #1c2620;
-    --ink-soft: #3a4a3f;
-    --moss: #4a6240;
-    --moss-deep: #2d3e2a;
-    --amber: #a86b32;
-    --amber-deep: #8a4f1f;
-    --rust: #6b3520;
-    --mist: rgba(28, 38, 32, 0.08);
+    --paper:        #e8dcc0;
+    --paper-light:  #efe5cc;
+    --paper-deep:   #d8c9a6;
+    --paper-edge:   #c4b48d;
+    --ink:          #1f2419;
+    --ink-soft:     #3a3d2e;
+    --ink-faded:    #5a5b4a;
+    --moss:         #4a5a35;
+    --moss-deep:    #2c3820;
+    --amber:        #a8651e;
+    --amber-deep:   #7d4413;
+    --rust:         #8a3a1c;
+    --rust-faded:   rgba(138, 58, 28, 0.78);
+    --seal:         #aa3324;
+    --rule:         rgba(31, 36, 25, 0.55);
+    --rule-soft:    rgba(31, 36, 25, 0.22);
   }
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-  }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
   body {
-    font-family: "Noto Serif TC", serif;
+    font-family: "Noto Serif TC", "Cormorant Garamond", serif;
     background: var(--paper);
     color: var(--ink);
-    line-height: 1.7;
+    line-height: 1.75;
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
+    font-feature-settings: "palt" 1;
   }
 
-  /* Topographic line backdrop */
+  /* === Aged paper texture stack === */
   body::before {
     content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      radial-gradient(ellipse 800px 400px at 20% 10%, rgba(74, 98, 64, 0.12), transparent 60%),
-      radial-gradient(ellipse 600px 500px at 90% 80%, rgba(168, 107, 50, 0.08), transparent 60%);
-    pointer-events: none;
-    z-index: 0;
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 70% 50% at 15% 8%,  rgba(168, 101, 30, 0.10), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 92% 22%, rgba(138, 58, 28, 0.08), transparent 70%),
+      radial-gradient(ellipse 80% 60% at 50% 95%, rgba(74, 90, 53, 0.10), transparent 70%),
+      radial-gradient(circle 200px at 78% 60%,    rgba(125, 68, 19, 0.06), transparent 70%),
+      radial-gradient(circle 140px at 12% 75%,    rgba(125, 68, 19, 0.07), transparent 70%);
   }
-
-  /* Subtle paper grain */
   body::after {
     content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.15 0 0 0 0 0.12 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 1;
+    position: fixed; inset: 0; z-index: 1; pointer-events: none;
     mix-blend-mode: multiply;
-    opacity: 0.6;
+    opacity: 0.55;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='7'/><feColorMatrix values='0 0 0 0 0.13  0 0 0 0 0.11 0 0 0 0 0.07  0 0 0 0.18 0'/></filter><rect width='320' height='320' filter='url(%23n)'/></svg>");
+  }
+
+  /* Vignette / paper edge */
+  .vignette {
+    position: fixed; inset: 0; z-index: 1; pointer-events: none;
+    box-shadow: inset 0 0 80px rgba(82, 56, 18, 0.18), inset 0 0 220px rgba(82, 56, 18, 0.10);
   }
 
   main {
     position: relative;
-    z-index: 2;
-    max-width: 640px;
+    z-index: 3;
+    max-width: 560px;
     margin: 0 auto;
-    padding: 32px 22px 80px;
+    padding: 18px 16px 64px;
   }
 
-  .topo {
-    position: absolute;
-    pointer-events: none;
-    opacity: 0.18;
-    z-index: 0;
-  }
-
-  /* === HERO === */
-  .hero {
+  /* === Page frame: double rule like old book plate === */
+  .page-frame {
     position: relative;
-    padding: 40px 0 36px;
+    padding: 28px 18px 32px;
+    border: 1px solid var(--rule);
+    box-shadow: inset 0 0 0 4px var(--paper), inset 0 0 0 5px var(--rule-soft);
+  }
+
+  /* corner ornaments */
+  .corner {
+    position: absolute; width: 22px; height: 22px;
+    color: var(--amber-deep);
+  }
+  .corner svg { width: 100%; height: 100%; display: block; }
+  .corner.tl { top: -2px; left: -2px; }
+  .corner.tr { top: -2px; right: -2px; transform: scaleX(-1); }
+  .corner.bl { bottom: -2px; left: -2px; transform: scaleY(-1); }
+  .corner.br { bottom: -2px; right: -2px; transform: scale(-1, -1); }
+
+  /* === Masthead === */
+  .mast {
     text-align: center;
-    border-bottom: 1px solid var(--mist);
-  }
-
-  .hero .meta-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: "Noto Serif TC", serif;
-    font-weight: 300;
-    font-size: 12px;
-    color: var(--ink-soft);
-    letter-spacing: 0.3em;
-    margin-bottom: 36px;
-    padding: 0 4px;
-  }
-
-  .hero .meta-top span {
+    padding-bottom: 20px;
     position: relative;
   }
-
-  .hero .meta-top .center {
-    letter-spacing: 0.2em;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+  .mast .stamp-row {
+    display: flex; justify-content: center; align-items: center;
+    font-family: "IM Fell English", "Cormorant Garamond", serif;
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    color: var(--ink-faded);
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    padding: 0 2px;
+  }
+  .mast .stamp-row .reg {
+    border: 1px solid var(--rule);
+    padding: 3px 8px 2px;
+    letter-spacing: 0.22em;
+    font-size: 9px;
   }
 
-  .hero .meta-top .dot {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--amber);
-    display: inline-block;
-  }
-
-  .hero h1 {
+  .mast .kicker {
+    display: inline-flex; align-items: center; gap: 12px;
     font-family: "Noto Serif TC", serif;
-    font-weight: 700;
-    font-size: clamp(56px, 17vw, 84px);
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.6em;
+    color: var(--moss-deep);
+    margin-bottom: 14px;
+    padding-left: 0.6em; /* compensate tracking */
+  }
+  .mast .kicker .rule {
+    width: 28px; height: 1px; background: var(--moss-deep); opacity: 0.5;
+  }
+
+  .mast h1 {
+    font-family: "Noto Serif TC", serif;
+    font-weight: 900;
+    font-size: clamp(58px, 18vw, 86px);
     line-height: 1;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.18em;
     color: var(--moss-deep);
     margin: 0;
+    padding-left: 0.18em;
     position: relative;
-    display: inline-block;
-    padding-right: 0.25em;
+    text-shadow:
+      0.5px 0 0 rgba(44, 56, 32, 0.4),
+      -0.3px 0.3px 0 rgba(44, 56, 32, 0.2);
   }
-
-  .hero h1 .deer {
-    display: inline-block;
-    transform: translateY(-0.05em);
+  .mast h1 .deer {
     color: var(--rust);
+    font-weight: 900;
+    text-shadow:
+      0.5px 0 0 rgba(138, 58, 28, 0.4),
+      -0.3px 0.3px 0 rgba(138, 58, 28, 0.2);
   }
 
-  .hero .ornament {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    margin: 28px 0 18px;
-    color: var(--moss);
+  .mast .subtitle-en {
+    font-family: "IM Fell English", "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: var(--ink-faded);
+    margin-top: 18px;
   }
 
-  .hero .ornament .line {
-    width: 60px;
-    height: 1px;
-    background: currentColor;
-    opacity: 0.5;
+  .mast .year {
+    margin-top: 14px;
+    font-family: "IM Fell English", serif;
+    font-size: 28px;
+    letter-spacing: 0.35em;
+    color: var(--amber-deep);
+    font-weight: 400;
+    padding-left: 0.35em;
   }
 
-  .hero .ornament svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .hero .quote {
-    font-family: "Noto Serif TC", serif;
-    font-weight: 300;
-    font-size: 14px;
-    color: var(--ink-soft);
-    max-width: 320px;
-    margin: 6px auto 0;
-    line-height: 1.9;
-    letter-spacing: 0.2em;
-  }
-
-  /* === PROLOGUE === */
-  .prologue {
-    max-width: 420px;
-    margin: 14px auto 0;
-    padding: 22px 20px 20px;
-    text-align: left;
-    border-top: 1px solid rgba(168, 107, 50, 0.3);
-    border-bottom: 1px solid rgba(168, 107, 50, 0.3);
-    background: rgba(74, 98, 64, 0.04);
+  /* Double rule divider */
+  .rule-double {
+    height: 4px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin: 20px auto;
+    max-width: 90%;
     position: relative;
+  }
+  .rule-double::after {
+    content: '◆';
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--paper);
+    color: var(--amber-deep);
+    padding: 0 10px;
+    font-size: 9px;
+    line-height: 1;
+  }
+
+  /* Compass ornament */
+  .compass {
+    display: flex; justify-content: center; margin: 8px 0 16px;
+    color: var(--moss-deep);
+  }
+  .compass svg { width: 56px; height: 56px; opacity: 0.85; }
+
+  /* === Prologue (field-journal entry) === */
+  .prologue {
+    margin: 18px 4px 4px;
+    padding: 22px 18px 18px;
+    background: rgba(216, 201, 166, 0.35);
+    border-top: 2px solid var(--rule);
+    border-bottom: 2px solid var(--rule);
+    position: relative;
+  }
+  .prologue::before, .prologue::after {
+    content: '';
+    position: absolute; left: 0; right: 0; height: 1px;
+    background: var(--rule); opacity: 0.4;
+  }
+  .prologue::before { top: 4px; }
+  .prologue::after  { bottom: 4px; }
+
+  .prologue .label {
+    display: inline-block;
+    font-family: "IM Fell English", serif;
+    font-style: italic;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--amber-deep);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding: 2px 10px 1px;
+    border: 1px solid var(--amber-deep);
+    background: var(--paper-light);
   }
 
   .prologue p {
     font-family: "Noto Serif TC", serif;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 14.5px;
     color: var(--ink);
     line-height: 2;
     letter-spacing: 0.04em;
     text-align: justify;
     text-indent: 2em;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
-
-  .prologue p:last-child {
-    margin-bottom: 0;
-  }
-
-  .prologue .year {
-    color: var(--amber-deep);
-    font-weight: 600;
-    letter-spacing: 0.1em;
-  }
+  .prologue p:last-of-type { margin-bottom: 0; }
 
   .prologue .key {
     color: var(--moss-deep);
     font-weight: 600;
+    border-bottom: 1px dotted var(--moss-deep);
+    padding-bottom: 1px;
   }
-
-  .prologue .key .hl,
-  .prologue .deer-mark .hl {
+  .prologue .hl {
     color: var(--rust);
     font-weight: 700;
-    font-size: 1.4em;
+    font-size: 1.35em;
     line-height: 1;
-    margin: 0 0.05em;
+    margin: 0 0.04em;
   }
-
-  .prologue .deer-mark {
-    color: var(--amber-deep);
+  .prologue .yr {
+    color: var(--ink);
     font-weight: 600;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
   }
 
   .prologue .closing {
     text-align: center;
     text-indent: 0;
-    color: var(--moss-deep);
-    font-weight: 400;
-    font-size: 13px;
-    margin-top: 18px;
+    margin-top: 20px;
     padding-top: 16px;
-    border-top: 1px dashed rgba(168, 107, 50, 0.3);
-    letter-spacing: 0.25em;
+    border-top: 1px dashed var(--rule-soft);
+    font-size: 13px;
+    letter-spacing: 0.28em;
+    color: var(--moss-deep);
     line-height: 2.1;
+    font-weight: 500;
+  }
+  .prologue .closing .br {
+    display: block;
   }
 
-  /* === SECTION TITLE === */
-  .section-title {
+  /* Red seal/stamp */
+  .seal {
+    position: absolute;
+    right: -6px;
+    bottom: -22px;
+    width: 64px; height: 64px;
+    transform: rotate(-8deg);
+    opacity: 0.85;
+    pointer-events: none;
+  }
+  .seal svg { width: 100%; height: 100%; }
+
+  /* === Section header === */
+  .section {
+    margin-top: 56px;
+    position: relative;
+  }
+  .sec-head {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 3px double var(--rule);
+  }
+  .sec-num {
+    font-family: "IM Fell English", serif;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    color: var(--amber-deep);
+    border: 1px solid var(--amber-deep);
+    padding: 4px 8px 3px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .sec-head h2 {
     font-family: "Noto Serif TC", serif;
     font-size: 22px;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 0.4em;
     color: var(--moss-deep);
-    letter-spacing: 0.3em;
-    margin-bottom: 28px;
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    position: relative;
-    padding-left: 16px;
+    padding-left: 0.4em;
+    flex: 1;
   }
-
-  .section-title::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4px;
-    height: 22px;
-    background: var(--amber);
-  }
-
-  .section-title .num {
-    font-family: "Noto Serif TC", serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: var(--amber);
+  .sec-head .en {
+    font-family: "IM Fell English", serif;
+    font-style: italic;
+    font-size: 11px;
     letter-spacing: 0.2em;
+    color: var(--ink-faded);
+    text-transform: uppercase;
   }
 
-  .details {
-    margin-top: 56px;
-  }
-
-  .info-list {
+  /* === Info list (ledger style) === */
+  .ledger {
     list-style: none;
-    border-top: 1px solid var(--mist);
+    border-top: 1px solid var(--rule);
   }
-
-  .info-list li {
+  .ledger li {
     display: grid;
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 92px 1fr;
     gap: 14px;
-    padding: 18px 4px;
-    border-bottom: 1px dashed rgba(28, 38, 32, 0.18);
+    padding: 14px 4px;
+    border-bottom: 1px dashed var(--rule-soft);
     align-items: baseline;
   }
-
-  .info-list .key {
+  .ledger .k {
     font-family: "Noto Serif TC", serif;
     font-weight: 500;
-    font-size: 14px;
-    color: var(--moss);
-    letter-spacing: 0.2em;
-    position: relative;
+    font-size: 13px;
+    color: var(--moss-deep);
+    letter-spacing: 0.3em;
     padding-left: 14px;
+    position: relative;
   }
-
-  .info-list .key::before {
+  .ledger .k::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 0.55em;
-    width: 6px;
-    height: 6px;
-    background: var(--amber);
-    border-radius: 50%;
+    left: 0; top: 0.6em;
+    width: 6px; height: 6px;
+    background: var(--amber-deep);
+    transform: rotate(45deg);
   }
-
-  .info-list .val {
+  .ledger .v {
     font-family: "Noto Serif TC", serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     color: var(--ink);
     letter-spacing: 0.04em;
   }
-
-  .info-list .val .accent {
-    color: var(--amber-deep);
-    font-weight: 600;
-  }
-
-  .info-list .val .sub {
-    color: var(--ink-soft);
-    font-size: 13px;
+  .ledger .v .num {
+    font-family: "IM Fell English", serif;
+    font-size: 19px;
+    color: var(--rust);
     font-weight: 400;
+    letter-spacing: 0.05em;
+    margin: 0 1px;
+  }
+  .ledger .v .sub {
+    color: var(--ink-faded);
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: 4px;
   }
 
-  .signup-btn {
+  /* signup button — like a postal stamp */
+  .stamp-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     margin-top: 4px;
-    padding: 10px 18px 10px 14px;
-    background: var(--moss-deep);
-    color: var(--paper);
+    padding: 10px 16px 9px 14px;
+    background: var(--paper-light);
+    color: var(--moss-deep);
     text-decoration: none;
     font-family: "Noto Serif TC", serif;
+    font-weight: 600;
     font-size: 14px;
-    letter-spacing: 0.25em;
-    border-radius: 2px;
-    transition: all 0.3s ease;
+    letter-spacing: 0.28em;
     border: 1px solid var(--moss-deep);
-    font-weight: 500;
+    box-shadow:
+      inset 0 0 0 3px var(--paper-light),
+      inset 0 0 0 4px var(--moss-deep);
+    transition: all 0.25s ease;
+    position: relative;
   }
-
-  .signup-btn:hover,
-  .signup-btn:active {
-    background: var(--amber-deep);
-    border-color: var(--amber-deep);
+  .stamp-btn::before {
+    content: '';
+    position: absolute; inset: -6px;
+    background-image: radial-gradient(circle at 4px 4px, transparent 2px, var(--paper) 2.5px);
+    background-size: 8px 8px;
+    background-position: 0 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
   }
-
-  .signup-btn svg {
-    width: 14px;
-    height: 14px;
-    transition: transform 0.3s ease;
+  .stamp-btn:hover, .stamp-btn:active {
+    background: var(--moss-deep);
+    color: var(--paper-light);
+    box-shadow:
+      inset 0 0 0 3px var(--moss-deep),
+      inset 0 0 0 4px var(--paper-light);
   }
+  .stamp-btn svg { width: 14px; height: 14px; }
 
-  .signup-btn:hover svg {
-    transform: translateX(3px);
-  }
-
-  /* === ITINERARY === */
-  .itinerary {
-    margin-top: 64px;
-  }
-
-  .itinerary .intro {
+  /* === Itinerary === */
+  .intro-line {
     font-family: "Noto Serif TC", serif;
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--ink-soft);
+    font-style: italic;
+    font-size: 13px;
     letter-spacing: 0.18em;
-    margin: -12px 0 28px 16px;
-    padding-left: 12px;
-    border-left: 1px solid rgba(168, 107, 50, 0.4);
+    color: var(--ink-faded);
+    margin: -8px 0 24px;
+    padding-left: 14px;
+    border-left: 2px solid var(--amber-deep);
   }
 
   .timeline {
+    list-style: none;
     position: relative;
     padding-left: 0;
-    list-style: none;
   }
 
   .day {
     position: relative;
-    padding: 0 0 32px 56px;
-    border-left: 1px solid rgba(74, 98, 64, 0.3);
-    margin-left: 22px;
+    padding: 0 0 26px 44px;
+    margin-left: 14px;
+    border-left: 1px dashed var(--rule);
   }
-
   .day:last-child {
     border-left-color: transparent;
-    padding-bottom: 8px;
+    padding-bottom: 4px;
   }
 
+  /* day node */
   .day::before {
     content: '';
     position: absolute;
-    left: -7px;
-    top: 8px;
-    width: 13px;
-    height: 13px;
+    left: -7px; top: 6px;
+    width: 13px; height: 13px;
     background: var(--paper);
-    border: 2px solid var(--moss);
+    border: 1.5px solid var(--moss-deep);
     border-radius: 50%;
     z-index: 2;
   }
-
-  .day.start::before,
-  .day.end::before {
-    background: var(--amber);
-    border-color: var(--amber-deep);
-    width: 15px;
-    height: 15px;
-    left: -8px;
-    top: 7px;
+  .day::after {
+    content: '';
+    position: absolute;
+    left: -3px; top: 10px;
+    width: 5px; height: 5px;
+    background: var(--moss-deep);
+    border-radius: 50%;
+    z-index: 3;
+  }
+  .day.start::before, .day.end::before {
+    border-color: var(--rust);
+    background: var(--paper-light);
+    width: 15px; height: 15px;
+    left: -8px; top: 5px;
+  }
+  .day.start::after, .day.end::after {
+    background: var(--rust);
+    width: 7px; height: 7px;
+    left: -4px; top: 9px;
   }
 
-  .day-header {
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    margin-bottom: 12px;
+  .day-head {
+    display: flex; align-items: baseline; gap: 12px;
+    margin-bottom: 10px;
     flex-wrap: wrap;
   }
-
   .day-num {
-    font-family: "Noto Serif TC", serif;
-    font-weight: 700;
+    font-family: "IM Fell English", serif;
+    font-weight: 400;
     font-size: 30px;
     color: var(--moss-deep);
-    line-height: 1;
-    letter-spacing: 0.05em;
-    display: inline-flex;
-    align-items: baseline;
-    gap: 2px;
+    line-height: 0.9;
+    letter-spacing: 0.04em;
   }
-
-  .day-num .label {
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--amber);
+  .day-num .d {
+    font-size: 14px;
+    color: var(--amber-deep);
     letter-spacing: 0.15em;
-    margin: 0 2px;
+    margin-right: 1px;
+    vertical-align: 2px;
   }
-
   .day-date {
     font-family: "Noto Serif TC", serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: var(--ink-soft);
+    font-size: 17px;
+    font-weight: 600;
     letter-spacing: 0.1em;
-    padding-bottom: 4px;
-    border-bottom: 1px dotted var(--ink-soft);
+    color: var(--ink);
+    padding-bottom: 2px;
+  }
+  .day-tag {
+    margin-left: auto;
+    font-family: "Noto Serif TC", serif;
+    font-size: 10.5px;
+    letter-spacing: 0.3em;
+    color: var(--amber-deep);
+    border: 1px solid var(--amber-deep);
+    padding: 2px 8px 1px;
+    text-transform: uppercase;
+    background: var(--paper-light);
   }
 
   .day-route {
     font-family: "Noto Serif TC", serif;
-    font-size: 15px;
-    line-height: 1.85;
+    font-size: 14.5px;
+    line-height: 1.95;
     color: var(--ink);
     letter-spacing: 0.05em;
-    margin-bottom: 12px;
+    text-align: justify;
   }
-
-  .day-route .arrow {
+  .day-route .arr {
     display: inline-block;
-    color: var(--amber);
-    margin: 0 4px;
-    font-weight: 500;
-    transform: translateY(-1px);
+    color: var(--amber-deep);
+    margin: 0 5px;
+    font-family: "IM Fell English", serif;
+  }
+  .day-route .pin {
+    color: var(--ink);
+    padding-bottom: 1px;
   }
 
-  .camp {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 12px 4px 8px;
-    background: rgba(74, 98, 64, 0.1);
-    border-left: 2px solid var(--moss);
-    font-family: "Noto Serif TC", serif;
-    font-size: 13px;
-    color: var(--moss-deep);
-    letter-spacing: 0.15em;
-    font-weight: 500;
-  }
-
-  .camp svg {
-    width: 12px;
-    height: 12px;
-    flex-shrink: 0;
-  }
-
-  .camp.none {
-    background: transparent;
-    border-left-color: rgba(28, 38, 32, 0.2);
-    color: rgba(28, 38, 32, 0.45);
-    font-weight: 400;
-    padding-left: 12px;
-  }
-
-  /* === FOOTER === */
+  /* === Footer === */
   footer {
-    margin-top: 72px;
-    padding-top: 32px;
-    border-top: 1px solid var(--mist);
+    margin-top: 64px;
     text-align: center;
+    padding-top: 28px;
     position: relative;
   }
-
-  footer .ornament-foot {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-    color: var(--moss);
+  footer .orn {
+    display: flex; justify-content: center; align-items: center; gap: 12px;
+    margin-bottom: 18px;
+    color: var(--moss-deep);
   }
-
-  footer .ornament-foot .line {
-    width: 30px;
-    height: 1px;
-    background: currentColor;
-    opacity: 0.4;
-  }
-
+  footer .orn .rule { width: 36px; height: 1px; background: currentColor; opacity: 0.5; }
   footer .coords {
-    font-family: "Noto Serif TC", serif;
-    font-weight: 400;
+    font-family: "IM Fell English", serif;
     font-size: 12px;
-    color: var(--ink-soft);
-    letter-spacing: 0.2em;
+    letter-spacing: 0.22em;
+    color: var(--ink-faded);
     line-height: 2;
   }
-
-  footer .coords .label {
+  footer .coords .lbl {
+    font-family: "Noto Serif TC", serif;
     color: var(--amber-deep);
-    margin-right: 6px;
+    margin-right: 4px;
     font-weight: 500;
+    letter-spacing: 0.3em;
+  }
+  footer .colophon {
+    margin-top: 22px;
+    font-family: "Noto Serif TC", serif;
+    font-size: 10.5px;
+    letter-spacing: 0.4em;
+    color: var(--ink-faded);
+  }
+  footer .colophon .dot {
+    color: var(--rust);
+    margin: 0 8px;
   }
 
-  /* Reveal animation */
+  /* Reveal */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(12px); }
+    from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
-  .hero, .details, .itinerary, footer {
-    animation: fadeUp 0.8s ease both;
+  .mast, .section, footer {
+    animation: fadeUp 0.7s ease both;
   }
-  .details { animation-delay: 0.15s; }
-  .itinerary { animation-delay: 0.3s; }
-  footer { animation-delay: 0.45s; }
+  .section:nth-of-type(2) { animation-delay: 0.1s; }
+  .section:nth-of-type(3) { animation-delay: 0.2s; }
+  footer { animation-delay: 0.3s; }
 
   /* Wider screens */
   @media (min-width: 480px) {
-    main { padding: 40px 32px 80px; }
-    .info-list li { grid-template-columns: 130px 1fr; gap: 20px; }
-    .day { padding-left: 64px; }
+    main { padding: 28px 22px 80px; }
+    .page-frame { padding: 36px 26px 40px; }
+    .ledger li { grid-template-columns: 120px 1fr; gap: 18px; }
+    .day { padding-left: 52px; }
   }
 </style>
 </head>
 <body>
 
-<!-- Decorative topographic SVG, fixed in corner -->
-<svg class="topo" style="top:60px; right:-80px; width:280px;" viewBox="0 0 200 200" fill="none" stroke="#4a6240" stroke-width="0.5">
-  <path d="M100,100 m-80,0 a80,80 0 1,0 160,0 a80,80 0 1,0 -160,0" />
-  <path d="M100,100 m-65,-5 a65,60 0 1,0 130,0 a65,60 0 1,0 -130,0" />
-  <path d="M100,100 m-50,-8 a50,48 0 1,0 100,0 a50,48 0 1,0 -100,0" />
-  <path d="M100,100 m-35,-10 a35,38 0 1,0 70,0 a35,38 0 1,0 -70,0" />
-  <path d="M100,100 m-20,-12 a20,28 0 1,0 40,0 a20,28 0 1,0 -40,0" />
-</svg>
+<div class="vignette"></div>
 
 <main>
+<div class="page-frame">
 
-  <!-- HERO -->
-  <section class="hero">
+  <!-- corner ornaments -->
+  <span class="corner tl"><svg viewBox="0 0 22 22" fill="currentColor"><path d="M0 0 H22 V2 H2 V22 H0 Z"/><path d="M5 5 H10 V6 H6 V10 H5 Z"/></svg></span>
+  <span class="corner tr"><svg viewBox="0 0 22 22" fill="currentColor"><path d="M0 0 H22 V2 H2 V22 H0 Z"/><path d="M5 5 H10 V6 H6 V10 H5 Z"/></svg></span>
+  <span class="corner bl"><svg viewBox="0 0 22 22" fill="currentColor"><path d="M0 0 H22 V2 H2 V22 H0 Z"/><path d="M5 5 H10 V6 H6 V10 H5 Z"/></svg></span>
+  <span class="corner br"><svg viewBox="0 0 22 22" fill="currentColor"><path d="M0 0 H22 V2 H2 V22 H0 Z"/><path d="M5 5 H10 V6 H6 V10 H5 Z"/></svg></span>
+
+  <!-- MASTHEAD -->
+  <header class="mast">
     <h1>雙<span class="deer">鹿</span>連走</h1>
 
-    <div class="ornament">
-      <span class="line"></span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M12 22 L12 14 M12 14 L7 9 L7 5 M12 14 L17 9 L17 5 M12 14 L9 11 M12 14 L15 11 M5 7 L7 5 L9 7 M15 7 L17 5 L19 7" stroke-linecap="round" stroke-linejoin="round"/>
+    <div class="rule-double"></div>
+
+    <div class="compass" aria-hidden="true">
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1">
+        <circle cx="32" cy="32" r="28" />
+        <circle cx="32" cy="32" r="22" stroke-dasharray="1 3" />
+        <path d="M32 6 L36 32 L32 58 L28 32 Z" fill="currentColor" fill-opacity="0.15"/>
+        <path d="M32 6 L36 32 L32 32 Z" fill="currentColor"/>
+        <path d="M6 32 L32 28 L58 32 L32 36 Z" fill="currentColor" fill-opacity="0.1"/>
+        <text x="32" y="14" text-anchor="middle" font-family="Noto Serif TC, serif" font-weight="700" font-size="7" fill="currentColor" stroke="none">北</text>
+        <text x="32" y="56" text-anchor="middle" font-family="Noto Serif TC, serif" font-weight="500" font-size="6" fill="currentColor" stroke="none" opacity="0.55">南</text>
       </svg>
-      <span class="line"></span>
     </div>
 
+    <!-- PROLOGUE -->
     <div class="prologue">
       <p>
-        一九三二年夏，<span class="key"><span class="hl">鹿</span>野忠雄</span>與<span class="key">田中薰</span>自南湖北稜登頂，深入探勘大濁水北溪源頭，並於學術報告中首次系統性地記錄了台灣高山的「冰河地形」。
+        <span class="yr">一九三二年</span>夏，<span class="key"><span class="hl">鹿</span>野忠雄</span>與<span class="key">田中薰</span>自南湖北稜登頂，深入探勘大濁水北溪源頭，並於學術報告中首次系統性地記錄了臺灣高山的「冰河地形」。
       </p>
       <p>
-        九十四年後，我們循著當年的踏查路徑再次登臨。帶走<span class="key">水<span class="hl">鹿</span>池</span>畔散落的鹿角，也領略了那份封存於南湖圈谷間、跨越近世紀的冰河遺緒。
+        九十四年後，我們循當年的踏查路徑再次登臨。帶走<span class="key">水<span class="hl">鹿</span>池</span>畔散落的鹿角，也領略那份封存於南湖圈谷間、跨越近世紀的冰河遺緒。
       </p>
       <p class="closing">
-        這是一篇舊路的新腳印也是一封遲到的回信
+        <span class="br">這是一篇舊路的新腳印</span>
+        <span class="br">也是一封遲到的回信</span>
       </p>
     </div>
-  </section>
+  </header>
 
   <!-- DETAILS -->
-  <section class="details">
-    <h2 class="section-title">行前資訊</h2>
+  <section class="section">
+    <div class="sec-head">
+      <h2>行前資訊</h2>
+    </div>
 
-    <ul class="info-list">
+    <ul class="ledger">
       <li>
-        <span class="key">活動日期</span>
-        <span class="val">2026 / <span class="accent">8 / 13</span>（四） — <span class="accent">8 / 18</span>（二）</span>
+        <span class="k">活動日期</span>
+        <span class="v">二〇二六　<span class="num">8/13</span>（四） — <span class="num">8/18</span>（二）</span>
       </li>
       <li>
-        <span class="key">參加人數</span>
-        <span class="val"><span class="accent">8</span> 人 <span class="sub">（含籌備組）</span></span>
+        <span class="k">參加人數</span>
+        <span class="v"><span class="num">8</span> 人 <span class="sub">含籌備組</span></span>
       </li>
       <li>
-        <span class="key">行前會</span>
-        <span class="val">7 / 28（二）<span class="accent">21:00</span></span>
+        <span class="k">行前會</span>
+        <span class="v"><span class="num">7/28</span>（二） · <span class="num">21:00</span></span>
       </li>
       <li>
-        <span class="key">出發前行前會</span>
-        <span class="val">8 / 10（一）<span class="accent">21:00</span></span>
+        <span class="k">出發前行前會</span>
+        <span class="v"><span class="num">8/10</span>（一） · <span class="num">21:00</span></span>
       </li>
       <li>
-        <span class="key">報名表單</span>
-        <span class="val">
-          <a class="signup-btn" href="https://forms.gle/ftKF2BCJ24r2JTX88" target="_blank" rel="noopener">
+        <span class="k">報名表單</span>
+        <span class="v">
+          <a class="stamp-btn" href="https://forms.gle/ftKF2BCJ24r2JTX88" target="_blank" rel="noopener">
             填寫報名表
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"/>
@@ -641,96 +689,100 @@
   </section>
 
   <!-- ITINERARY -->
-  <section class="itinerary">
-    <h2 class="section-title">行程總覽</h2>
-    <p class="intro">行程先暫定如下</p>
+  <section class="section">
+    <div class="sec-head">
+      <h2>行程總覽</h2>
+    </div>
+
+    <p class="intro-line">行程先暫定如下</p>
 
     <ol class="timeline">
       <li class="day start">
-        <div class="day-header">
-          <span class="day-num">D0</span>
-          <span class="day-date">8 / 12</span>
+        <div class="day-head">
+          <span class="day-num"><span class="d">第</span>〇<span class="d">日</span></span>
+          <span class="day-date">8/12（三）</span>
         </div>
-        <div class="day-route">台北 <span class="arrow">→</span> 四季</div>
+        <div class="day-route"><span class="pin">台北</span> <span class="arr">▸</span> <span class="pin">四季</span></div>
       </li>
 
       <li class="day">
-        <div class="day-header">
-          <span class="day-num">D1</span>
-          <span class="day-date">8 / 13</span>
+        <div class="day-head">
+          <span class="day-num"><span class="d">第</span>一<span class="d">日</span></span>
+          <span class="day-date">8/13（四）</span>
         </div>
         <div class="day-route">
-          四季林道柵欄 <span class="arrow">→</span> 林字瀑布 <span class="arrow">→</span> 霧覽山登山口 <span class="arrow">→</span> 西霧覽營地
-        </div>
-      </li>
-
-      <li class="day">
-        <div class="day-header">
-          <span class="day-num">D2</span>
-          <span class="day-date">8 / 14</span>
-        </div>
-        <div class="day-route">
-          西霧覽營地 <span class="arrow">→</span> 發徒山 <span class="arrow">→</span> 森林營地
+          <span class="pin">四季林道</span> <span class="arr">▸</span> 林字瀑布 <span class="arr">▸</span> 霧覽山登山口 <span class="arr">▸</span> <span class="pin">西霧覽營地</span>
         </div>
       </li>
 
       <li class="day">
-        <div class="day-header">
-          <span class="day-num">D3</span>
-          <span class="day-date">8 / 15</span>
+        <div class="day-head">
+          <span class="day-num"><span class="d">第</span>二<span class="d">日</span></span>
+          <span class="day-date">8/14（五）</span>
         </div>
         <div class="day-route">
-          森林營地 <span class="arrow">→</span> 拔都諾府山 <span class="arrow">→</span> 巴都服山 <span class="arrow">→</span> 雙岩峰 <span class="arrow">→</span> 南湖北山 <span class="arrow">→</span> 南湖山屋
+          西霧覽營地 <span class="arr">▸</span> 發徒山 <span class="arr">▸</span> <span class="pin">森林營地</span>
         </div>
       </li>
 
       <li class="day">
-        <div class="day-header">
-          <span class="day-num">D4</span>
-          <span class="day-date">8 / 16</span>
+        <div class="day-head">
+          <span class="day-num"><span class="d">第</span>三<span class="d">日</span></span>
+          <span class="day-date">8/15（六）</span>
         </div>
         <div class="day-route">
-          南湖山屋 <span class="arrow">→</span> 南湖東峰 <span class="arrow">→</span> 南湖中南峰 <span class="arrow">→</span> 水鹿池
+          森林營地 <span class="arr">▸</span> 拔都諾府山 <span class="arr">▸</span> 巴都服山 <span class="arr">▸</span> 雙岩峰 <span class="arr">▸</span> 南湖北山 <span class="arr">▸</span> <span class="pin">南湖山屋</span>
         </div>
       </li>
 
       <li class="day">
-        <div class="day-header">
-          <span class="day-num">D5</span>
-          <span class="day-date">8 / 17</span>
+        <div class="day-head">
+          <span class="day-num"><span class="d">第</span>四<span class="d">日</span></span>
+          <span class="day-date">8/16（日）</span>
         </div>
         <div class="day-route">
-          水鹿池 <span class="arrow">→</span> 南湖主峰 <span class="arrow">→</span> 南湖北山 <span class="arrow">→</span> 雲稜山莊
+          南湖山屋 <span class="arr">▸</span> 南湖東峰 <span class="arr">▸</span> 南湖中南峰 <span class="arr">▸</span> <span class="pin">水鹿池</span>
+        </div>
+      </li>
+
+      <li class="day">
+        <div class="day-head">
+          <span class="day-num"><span class="d">第</span>五<span class="d">日</span></span>
+          <span class="day-date">8/17（一）</span>
+        </div>
+        <div class="day-route">
+          水鹿池 <span class="arr">▸</span> <span class="pin">南湖主峰</span> <span class="arr">▸</span> 南湖北山 <span class="arr">▸</span> <span class="pin">雲稜山莊</span>
         </div>
       </li>
 
       <li class="day end">
-        <div class="day-header">
-          <span class="day-num">D6</span>
-          <span class="day-date">8 / 18</span>
+        <div class="day-head">
+          <span class="day-num"><span class="d">第</span>六<span class="d">日</span></span>
+          <span class="day-date">8/18（二）</span>
         </div>
         <div class="day-route">
-          雲稜山莊 <span class="arrow">→</span> 勝光下山
+          雲稜山莊 <span class="arr">▸</span> <span class="pin">勝光下山</span>
         </div>
       </li>
     </ol>
   </section>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="ornament-foot">
-      <span class="line"></span>
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+    <div class="orn">
+      <span class="rule"></span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
         <path d="M9 22 L9 14 M9 14 L5 10 L5 6 M9 14 L7 12 M5 8 L3 6 L5 4" stroke-linecap="round"/>
         <path d="M15 22 L15 14 M15 14 L19 10 L19 6 M15 14 L17 12 M19 8 L21 6 L19 4" stroke-linecap="round"/>
       </svg>
-      <span class="line"></span>
+      <span class="rule"></span>
     </div>
-    <div class="coords">
-      <div><span class="label">北緯</span> 24°21′40″ &nbsp;·&nbsp; <span class="label">東經</span> 121°26′22″</div>
-      <div style="margin-top:6px;">南湖大山主峰 · 海拔 3,742 公尺</div>
+    <div class="colophon">
+      南湖共學團<span class="dot">✦</span>二〇二六年立
     </div>
   </footer>
 
+</div>
 </main>
 
 </body>
