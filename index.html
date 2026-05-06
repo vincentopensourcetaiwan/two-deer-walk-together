@@ -136,13 +136,14 @@
   .mast h1 {
     font-family: "Noto Serif TC", serif;
     font-weight: 900;
-    font-size: clamp(58px, 18vw, 86px);
+    font-size: clamp(48px, 14.5vw, 76px);
     line-height: 1;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.06em;
     color: var(--moss-deep);
     margin: 0;
-    padding-left: 0.18em;
+    padding-left: 0.06em;
     position: relative;
+    white-space: nowrap;
     text-shadow:
       0.5px 0 0 rgba(44, 56, 32, 0.4),
       -0.3px 0.3px 0 rgba(44, 56, 32, 0.2);
@@ -339,8 +340,8 @@
   }
   .ledger li {
     display: grid;
-    grid-template-columns: 92px 1fr;
-    gap: 14px;
+    grid-template-columns: 80px 1fr;
+    gap: 12px;
     padding: 14px 4px;
     border-bottom: 1px dashed var(--rule-soft);
     align-items: baseline;
@@ -350,9 +351,10 @@
     font-weight: 500;
     font-size: 13px;
     color: var(--moss-deep);
-    letter-spacing: 0.3em;
+    letter-spacing: 0.18em;
     padding-left: 14px;
     position: relative;
+    white-space: nowrap;
   }
   .ledger .k::before {
     content: '';
@@ -364,17 +366,17 @@
   }
   .ledger .v {
     font-family: "Noto Serif TC", serif;
-    font-size: 15px;
+    font-size: 14.5px;
     font-weight: 500;
     color: var(--ink);
-    letter-spacing: 0.04em;
+    letter-spacing: 0.02em;
   }
   .ledger .v .num {
     font-family: "IM Fell English", serif;
-    font-size: 19px;
+    font-size: 17px;
     color: var(--rust);
     font-weight: 400;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
     margin: 0 1px;
   }
   .ledger .v .sub {
@@ -659,7 +661,7 @@
     <ul class="ledger">
       <li>
         <span class="k">活動日期</span>
-        <span class="v">二〇二六　<span class="num">8/13</span>（四） — <span class="num">8/18</span>（二）</span>
+        <span class="v" style="white-space:nowrap;">二〇二六　<span class="num">8/13</span>（四）—<span class="num">8/18</span>（二）</span>
       </li>
       <li>
         <span class="k">參加人數</span>
@@ -675,7 +677,7 @@
       </li>
       <li>
         <span class="k">報名期限</span>
-        <span class="v">即日起 — <span class="num">5/15</span>（五） · <span class="num">23:00</span></span>
+        <span class="v" style="white-space:nowrap;">即日起—<span class="num">5/15</span>（五）·<span class="num">23:00</span></span>
       </li>
       <li>
         <span class="k">報名表單</span>
