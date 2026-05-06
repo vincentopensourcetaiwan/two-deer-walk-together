@@ -340,11 +340,20 @@
   }
   .ledger li {
     display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 12px;
+    grid-template-columns: 88px 1fr;
+    gap: 10px;
     padding: 14px 4px;
     border-bottom: 1px dashed var(--rule-soft);
     align-items: baseline;
+  }
+  .ledger .v {
+    font-family: "Noto Serif TC", serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
   .ledger .k {
     font-family: "Noto Serif TC", serif;
@@ -366,17 +375,20 @@
   }
   .ledger .v {
     font-family: "Noto Serif TC", serif;
-    font-size: 14.5px;
+    font-size: 14px;
     font-weight: 500;
     color: var(--ink);
     letter-spacing: 0.02em;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
+  .ledger .v.tight { letter-spacing: 0; }
   .ledger .v .num {
     font-family: "IM Fell English", serif;
-    font-size: 17px;
+    font-size: 16px;
     color: var(--rust);
     font-weight: 400;
-    letter-spacing: 0.02em;
+    letter-spacing: 0;
     margin: 0 1px;
   }
   .ledger .v .sub {
@@ -661,7 +673,7 @@
     <ul class="ledger">
       <li>
         <span class="k">活動日期</span>
-        <span class="v" style="white-space:nowrap;">二〇二六　<span class="num">8/13</span>（四）—<span class="num">8/18</span>（二）</span>
+        <span class="v" style="white-space:nowrap;">二〇二六　<span class="num">8/13</span>（四）—<span class="num">8/18</span></span>
       </li>
       <li>
         <span class="k">參加人數</span>
@@ -669,11 +681,11 @@
       </li>
       <li>
         <span class="k">行前會</span>
-        <span class="v"><span class="num">7/28</span>（二） · <span class="num">21:00</span></span>
+        <span class="v"><span class="num">7/28</span>（二）·<span class="num">21:00</span></span>
       </li>
       <li>
         <span class="k">出發前行前會</span>
-        <span class="v"><span class="num">8/10</span>（一） · <span class="num">21:00</span></span>
+        <span class="v"><span class="num">8/10</span>（一）·<span class="num">21:00</span></span>
       </li>
       <li>
         <span class="k">報名期限</span>
