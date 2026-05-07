@@ -614,21 +614,18 @@
     line-height: 1.7;
     color: var(--moss-deep);
     letter-spacing: 0.08em;
-    padding: 3px 10px 3px 22px;
+    padding: 3px 10px;
     background: rgba(168, 101, 30, 0.08);
     border-left: 2px solid var(--amber-deep);
     position: relative;
   }
   .day-notes li::before {
-    content: '〔';
-    position: absolute;
-    left: 8px; top: 3px;
-    color: var(--amber-deep);
+    content: '';
+    display: none;
   }
   .day-notes li::after {
-    content: '〕';
-    color: var(--amber-deep);
-    margin-left: 4px;
+    content: '';
+    display: none;
   }
 
   /* === Notes === */
@@ -798,7 +795,7 @@
           西霧覽營地 <span class="arr">▸</span> 發徒山 <span class="arr">▸</span> <span class="pin">森林營地</span>
         </div>
         <ul class="day-notes">
-          <li>田中蕨杜鵑林微距生態體驗</li>
+          <li>田中薰杜鵑林微距生態體驗</li>
         </ul>
       </li>
 
