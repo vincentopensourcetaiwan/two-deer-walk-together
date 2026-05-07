@@ -375,9 +375,9 @@
   }
   .ledger .v .num {
     font-family: "IM Fell English", serif;
-    font-size: 15px;
+    font-size: 17px;
     color: var(--rust);
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0;
     margin: 0 1px;
   }
@@ -599,6 +599,69 @@
   .section:nth-of-type(3) { animation-delay: 0.2s; }
   footer { animation-delay: 0.3s; }
 
+  /* === Day notes === */
+  .day-notes {
+    list-style: none;
+    margin: 10px 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .day-notes li {
+    font-family: "Noto Serif TC", serif;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: var(--moss-deep);
+    letter-spacing: 0.08em;
+    padding: 3px 10px 3px 22px;
+    background: rgba(168, 101, 30, 0.08);
+    border-left: 2px solid var(--amber-deep);
+    position: relative;
+  }
+  .day-notes li::before {
+    content: '〔';
+    position: absolute;
+    left: 8px; top: 3px;
+    color: var(--amber-deep);
+  }
+  .day-notes li::after {
+    content: '〕';
+    color: var(--amber-deep);
+    margin-left: 4px;
+  }
+
+  /* === Notes === */
+  .note-list {
+    list-style: none;
+    padding: 0;
+  }
+  .note-list li {
+    font-family: "Noto Serif TC", serif;
+    font-size: 13px;
+    line-height: 2;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+    padding: 10px 0 10px 22px;
+    border-bottom: 1px dashed var(--rule-soft);
+    position: relative;
+    text-align: justify;
+  }
+  .note-list li:last-child { border-bottom: none; }
+  .note-list li::before {
+    content: '※';
+    position: absolute;
+    left: 2px; top: 10px;
+    color: var(--amber-deep);
+    font-size: 13px;
+  }
+  .note-list li .num {
+    font-family: "IM Fell English", serif;
+    color: var(--rust);
+    font-size: 15px;
+    margin: 0 1px;
+  }
+
   /* Wider screens */
   @media (min-width: 480px) {
     main { padding: 28px 22px 80px; }
@@ -667,7 +730,7 @@
       </li>
       <li>
         <span class="k">參加人數</span>
-        <span class="v"><span class="num">8</span> 人 <span class="sub">含籌備組</span></span>
+        <span class="v">招募上限<span class="num">4</span>人（含籌備組共<span class="num">8</span>人）</span>
       </li>
       <li>
         <span class="k">行前會</span>
@@ -679,7 +742,7 @@
       </li>
       <li>
         <span class="k">報名期限</span>
-        <span class="v" style="white-space:nowrap;">即日起—<span class="num">5/15</span>（五）·<span class="num">23:00</span></span>
+        <span class="v" style="white-space:nowrap;">即日起至 <span class="num">5/15</span>（五）·<span class="num">23:00</span> 止</span>
       </li>
       <li>
         <span class="k">報名表單</span>
@@ -719,8 +782,11 @@
           <span class="day-date">8/13（四）</span>
         </div>
         <div class="day-route">
-          <span class="pin">四季林道</span> <span class="arr">▸</span> 林字瀑布 <span class="arr">▸</span> 霧覽山登山口 <span class="arr">▸</span> <span class="pin">西霧覽營地</span>
+          <span class="pin">四季林道柵欄</span> <span class="arr">▸</span> 林字瀑布 <span class="arr">▸</span> 霧覽山登山口 <span class="arr">▸</span> <span class="pin">西霧覽營地</span>
         </div>
+        <ul class="day-notes">
+          <li>大濁水哺乳動物相身心靈自然觀察</li>
+        </ul>
       </li>
 
       <li class="day">
@@ -731,6 +797,9 @@
         <div class="day-route">
           西霧覽營地 <span class="arr">▸</span> 發徒山 <span class="arr">▸</span> <span class="pin">森林營地</span>
         </div>
+        <ul class="day-notes">
+          <li>田中蕨杜鵑林微距生態體驗</li>
+        </ul>
       </li>
 
       <li class="day">
@@ -741,6 +810,9 @@
         <div class="day-route">
           森林營地 <span class="arr">▸</span> 拔都諾府山 <span class="arr">▸</span> 巴都服山 <span class="arr">▸</span> 雙岩峰 <span class="arr">▸</span> 南湖北山 <span class="arr">▸</span> <span class="pin">南湖山屋</span>
         </div>
+        <ul class="day-notes">
+          <li>鹿野陽聖冰河遺跡導讀</li>
+        </ul>
       </li>
 
       <li class="day">
@@ -751,6 +823,10 @@
         <div class="day-route">
           南湖山屋 <span class="arr">▸</span> 南湖東峰 <span class="arr">▸</span> 南湖中南峰 <span class="arr">▸</span> <span class="pin">水鹿池</span>
         </div>
+        <ul class="day-notes">
+          <li>iNaturalist 南湖後花園自然大挑戰</li>
+          <li>高山自然寫生</li>
+        </ul>
       </li>
 
       <li class="day">
@@ -761,6 +837,9 @@
         <div class="day-route">
           水鹿池 <span class="arr">▸</span> <span class="pin">南湖主峰</span> <span class="arr">▸</span> 南湖北山 <span class="arr">▸</span> <span class="pin">雲稜山莊</span>
         </div>
+        <ul class="day-notes">
+          <li>雲杉社區静坐冥想</li>
+        </ul>
       </li>
 
       <li class="day end">
@@ -773,6 +852,19 @@
         </div>
       </li>
     </ol>
+  </section>
+
+  <!-- NOTES -->
+  <section class="section notes">
+    <div class="sec-head">
+      <h2>參與說明</h2>
+    </div>
+    <ul class="note-list">
+      <li>共學團活動都以共學共享的模式來經營，參與成員除了山行庶務的分工（例如：糎食菜單規劃、交通接駁與住宿安排…）外，也會需要共同參與主題分享。</li>
+      <li>若報名不足 <span class="num">2</span> 人，活動取消；若超過開放報名人數，將評估參與者狀況，或以抽籤方式決定。</li>
+      <li>若報名成功但中途退出，空缺名額將不得自行轉讓；相關訊息皆會同步發送至南湖共學團各群組，敬請留意。</li>
+      <li>雨天備案：若因天候因素不適合出團，則改在中南部適當的中級山路線活動。</li>
+    </ul>
   </section>
 
   <!-- FOOTER -->
